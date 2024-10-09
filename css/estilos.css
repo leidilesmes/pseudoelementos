@@ -1,0 +1,317 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f8a7ff;
+    margin: 0;
+    padding: 0;
+}
+
+/*  Pseudoelemento Focus  */
+.red-input:focus {
+  background: yellow;
+  color: red;
+}
+
+.blue-input:focus {
+  background: yellow;
+  color: blue;
+}
+
+/*  Pseudoelemento indeterminate */
+input:indeterminate + label {
+  background: lime;
+}
+
+/*  Pseudoelemento in-range */
+li {
+  list-style: none;
+  margin-bottom: 1em;
+}
+
+input {
+  border: 1px solid black;
+}
+
+input:in-range {
+  background-color: rgba(0, 255, 0, 0.25);
+}
+
+input:out-of-range {
+  background-color: rgba(255, 0, 0, 0.25);
+  border: 2px solid red;
+}
+
+input:in-range + label::after {
+  content: "bien.";
+}
+
+input:out-of-range + label::after {
+  content: "fuera de rango!";
+}
+
+/*  Pseudoelemento invalid */
+input:invalid {
+  background-color: #ffdddd;
+}
+
+form:invalid {
+  border: 5px solid #ffdddd;
+}
+
+input:valid {
+  background-color: #ddffdd;
+}
+
+form:valid {
+  border: 5px solid #ddffdd;
+}
+
+input:required {
+  border-color: #800000;
+  border-width: 3px;
+}
+
+input:required:invalid {
+  border-color: #c00000;
+}
+
+
+/*  Pseudoelemento lang */
+:lang(en) > q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+:lang(fr) > q {
+  quotes: "« " " »";
+}
+:lang(de) > q {
+  quotes: "»" "«" "\2039" "\203A";
+}
+
+/*  Pseudoelemento last-child */
+ul li {
+  color: blue;
+}
+
+ul li:last-child {
+  border: 1px solid red;
+  color: red;
+}
+
+/*  Pseudoelemento last-of-type */
+article :last-of-type {
+  background-color: pink;
+}
+
+/*  Pseudoelemento link */
+a:link {
+  background-color: gold;
+  color: green;
+}
+
+/*  Pseudoelemento not */
+.fancy {
+  text-shadow: 2px 2px 3px gold;
+}
+
+/* elementos <p> que no están en la clase `.fancy` */
+p:not(.fancy) {
+  color: green;
+}
+
+/* Elementos que no son elementos <p> */
+body :not(p) {
+  text-decoration: underline;
+}
+
+/* Elementos que no son elementos <div> o <span> */
+body :not(div):not(span) {
+  font-weight: bold;
+}
+
+/* Elementos que no son `.crazy` o `.fancy` */
+/* Tenga en cuenta que esta sintaxis aún no está bien soportada. */
+body :not(.crazy, .fancy) {
+  font-family: sans-serif;
+}
+
+/*  Pseudoelemento nth-child */
+html {
+  font-family: sans-serif;
+}
+
+span,
+div em {
+  padding: 5px;
+  border: 1px solid green;
+  display: inline-block;
+  margin-bottom: 3px;
+}
+
+.first span:nth-child(2n + 1),
+.second span:nth-child(2n + 1),
+.third span:nth-of-type(2n + 1) {
+  background-color: lime;
+}
+
+/*  Pseudoelemento nth-last-child */
+table {
+  border: 1px solid blue;
+}
+
+/* Selecciona los últimos tres elementos */
+tr:nth-last-child(-n + 3) {
+  background-color: pink;
+}
+
+/* Toma todos los elementos a partir del penúltimo elemento */
+tr:nth-last-child(n + 2) {
+  color: blue;
+}
+
+/* Seleccione solo el penúltimo elemento */
+tr:nth-last-child(2) {
+  font-weight: 600;
+}
+
+
+/*  Pseudoelemento nth-last-of-type */
+span:nth-last-of-type(2) {
+  background-color: lime;
+}
+
+/*  Pseudoelemento nth-of-type */
+/* Párrafos impares */
+p:nth-of-type(2n + 1) {
+  color: red;
+}
+
+/* Párrafos pares */
+p:nth-of-type(2n) {
+  color: blue;
+}
+
+/* Primer párrafo */
+p:nth-of-type(1) {
+  font-weight: bold;
+}
+
+/*  Pseudoelemento only-child */
+.Boton30 {
+  color: red;
+}
+
+
+/*  Pseudoelemento only-of-type */
+.Boton31 {
+  color: red;
+}
+
+/*  Pseudoelemento out-of-range */
+.Boton32 {
+    list-style: none;
+    margin-bottom: 1em;
+  }
+  
+  input {
+    border: 1px solid black;
+  }
+  
+  input:in-range {
+    background-color: rgba(0, 255, 0, 0.25);
+  }
+  
+  input:out-of-range {
+    background-color: rgba(255, 0, 0, 0.25);
+    border: 2px solid red;
+  }
+  
+  input:in-range + label::after {
+    content: "bien.";
+  }
+  
+  input:out-of-range + label::after {
+    content: "¡fuera de rango!";
+  }
+
+  /*  Pseudoelemento read-write */
+  input {
+    min-width: 25em;
+  }
+  input:-moz-read-write {
+    background: cyan;
+  }
+  input:read-write {
+    background: cyan;
+  }
+  
+  p:-moz-read-write {
+    background: lightgray;
+  }
+  p:read-write {
+    background: lightgray;
+  }
+  p[contenteditable="true"] {
+    color: blue;
+  }  
+  
+/*  Pseudoelemento scope */
+@scope (.light-scheme) {
+    :scope {
+      background-color: plum;
+    }
+  
+    a {
+      color: darkmagenta;
+    }
+  }
+  
+  @scope (.dark-scheme) {
+    :scope {
+      background-color: darkmagenta;
+      color: antiquewhite;
+    }
+  
+    a {
+      color: plum;
+    }
+  }
+  
+/*  Pseudoelemento target */
+p:target {
+  background-color: gold;
+}
+
+/* Agrega un pseudo-elemento dentro del elemento de destino */
+p:target::before {
+  font: 70% sans-serif;
+  content: "►";
+  color: limegreen;
+  margin-right: 0.25em;
+}
+
+/* Estilo de elementos en cursiva dentro del elemento de destino */
+p:target i {
+  color: red;
+}
+
+
+  
+/*  Pseudoelemento visited */
+a {
+  /* Especifique los valores predeterminados no transparentes a ciertas propiedades,
+     lo que les permite ser diseñado con el estado :visited */
+  background-color: white;
+  border: 1px solid white;
+}
+
+a:visited {
+  background-color: yellow;
+  border-color: hotpink;
+  color: hotpink;
+}
+
+
+  
+  
